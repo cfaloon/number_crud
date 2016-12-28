@@ -1,0 +1,1 @@
+json.partial! "number_records/number_record", number_record: @number_record

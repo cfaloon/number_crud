@@ -1,0 +1,2 @@
+module NumberRecordsHelper
+end

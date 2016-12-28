@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Number Records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @number_records.each do |number_record| %>
+      <tr>
+        <td><%= number_record.value %></td>
+        <td><%= link_to 'Show', number_record %></td>
+        <td><%= link_to 'Edit', edit_number_record_path(number_record) %></td>
+        <td><%= link_to 'Destroy', number_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Number record', new_number_record_path %>
