@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class NumberRecordsControllerTest < ActionController::TestCase
+  include Devise::Test::ControllerHelpers
+  
   setup do
     @number_record = number_records(:one)
+    sign_in users(:one)
   end
 
   test "should get index" do
