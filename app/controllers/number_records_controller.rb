@@ -29,7 +29,7 @@ class NumberRecordsController < ApplicationController
 
     respond_to do |format|
       if @number_record.save
-        format.html { redirect_to @number_record, notice: 'Number record was successfully created.' }
+        format.html { redirect_to number_records_path, notice: 'Number record was successfully created.' }
         format.json { render :show, status: :created, location: @number_record }
       else
         format.html { render :new }
