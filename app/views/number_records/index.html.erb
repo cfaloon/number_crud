@@ -1,6 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Number Records</h1>
+<% data_hash = {} %>
+<% (1..10).each { |n| data_hash[n] = 0 } %>
+<% data_hash.merge!(NumberRecord.group(:value).count) %>
+<% chart_options =  { xtitle: "NumberRecord Value", ytitle: "Count", curve: false,
+                      label: 'Count'} %>
+<% library_options = { scales:
+                       { yAxes: [{ticks: { max: data_hash.max_by{ |k,v| v }.second,
+                                           min: 0, stepSize: 1 }}]}} %>
+<% chart_options[:library] = library_options %>
+
+<%= line_chart data_hash, chart_options %>
 
 <table>
   <thead>
@@ -11,6 +22,7 @@
   </thead>
 
   <tbody>
+        
     <% @number_records.each do |number_record| %>
       <tr>
         <td><%= number_record.value %></td>
