@@ -24,7 +24,7 @@ class NumberRecordsControllerTest < ActionController::TestCase
       post :create, number_record: { value: @number_record.value }
     end
 
-    assert_redirected_to number_record_path(assigns(:number_record))
+    assert_redirected_to number_records_path
   end
 
   test "should show number_record" do
